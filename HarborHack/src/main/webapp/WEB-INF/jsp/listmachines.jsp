@@ -20,6 +20,11 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
+<style>
+.table{
+ table-layout: fixed;
+}
+</style>
 
 <!-- <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">-->
 </head>
@@ -51,63 +56,77 @@
 		</nav>
 		<div class="container">
 
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
 
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Modal Header</h4>
-						</div>
-						<div class="modal-body">
-							<p>Some text in the modal.</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-		</div>
-
+ <div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+   
+   
+     <div class="modal-content">
+       <div class="modal-header text-center">
+       <h4 class="modal-title w-100 font-weight-bold">Machine details</h4>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     
+  <div class="modal-body">
+       
+       <div class="md-form mb-1">
+         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+         <input type="text" id="orangeForm-name" class="form-control validate">
+       </div>
+       
+       <div class="md-form mb-2">
+         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+         <input type="text" id="orangeForm-name" class="form-control validate">
+       </div>
+       
+       <div class="md-form mb-3">
+         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+         <input type="text" id="orangeForm-name" class="form-control validate">
+       
+       </div>
+       
+       <div class="md-form mb-4">
+         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+         <input type="text" id="orangeForm-name" class="form-control validate">  
+       </div>
+       
+       <div class="modal-footer d-flex justify-content-center">
+       <button class="btn btn-indigo ">Submit</button>
+       </div>
+   
+     </div>
+   </div>
+ </div>
+ 
+</div>
 
 		<br>
 		<h6>Welcome ${name}</h6>
 		<br>
 
-		<table class="table table-striped" css="display:block">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Machine Name</th>
-					<th>FQDN</th>
-					<th>IP</th>
-					<th>DaemonPort</th>
-					
-				</tr>
-			</thead>
-			<tbody>
 				<c:forEach items="${machines}" var="machine">
-					<tr>
-						<td>${machine.id}</td>
-						<td>${machine.name}</td>
-						<td>${machine.user}</td>
-						<td>${machine.fqdn}</td>
-						<td>${machine.ip}</td>
-						<td>${machine.daemonport}</td>
-						<td><a type="button" class="btn btn-warning"
-							href="/deleteMachine?id=${machine.id}">Delete</a></td>
-						<td><a type="button" class="btn btn-success"
-							href="/getInfo?id=${machine.id}">Get Info</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		 <div class="card">
+  <div class="card-header">
+    ${machine.ip}
+  </div>
+  <div class="card-body">
+    <thead>
+    <tr>
+    <td>${machine.name}</td>
+    <td>${machine.user}</td>
+    <td>${machine.fqdn}</td>
+    <td>${machine.ip}</td>
+    <td>${machine.daemonport}</td>
+    
+    </tr>
+    </thead>
+    
+  </div>
+</div>
+</c:forEach>
+		
 	</div>
 	</body>
 	</html>
