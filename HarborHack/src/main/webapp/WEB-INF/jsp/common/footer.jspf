@@ -1,0 +1,17 @@
+			<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+		<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script>
+		var header = document.getElementById("navdiv");
+		var li = header.getElementsByTagName("LI");
+		for (var i = 0; i < li.length; i++) {
+		  li[i].addEventListener("click", function() {
+		  var current = document.getElementsByClassName("active");
+		  if (current.length > 0) { 
+		    current[0].className = current[0].className.replace(" active", "");
+		  }
+		  this.className += " active";
+		  });
+		}
+		</script>
+	</body>
+</html>
