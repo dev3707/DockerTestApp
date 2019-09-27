@@ -16,10 +16,6 @@ public class MachineService {
 
 	private static List<Machine> machines = new ArrayList<>();
 	static {
-	/*	Machines.add(new Machine(1, "anulav", "Chad Java Course", new Date(), false));
-		Machines.add(new Machine(2, "anulav", "in28minutes Spring Boot", new Date(), false));
-		Machines.add(new Machine(3, "anulav", "MySql", new Date(), false));
-*/
 	}
 
 	public List<Machine> retrieveMachines(String username) {

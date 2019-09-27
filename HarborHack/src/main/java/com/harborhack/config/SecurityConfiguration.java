@@ -13,7 +13,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("anulav").password("{noop}devfxa").roles("USER","ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("USER","ADMIN");
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.harborhack.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,15 +15,17 @@ public class Machine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(nullable=false)
 	private String name;
-	private String user;
-
 	
+	@Column(nullable=false, columnDefinition="varchar(255) default 'admin'")
+	private String user;
 
 	private String fqdn;
 
 	private String ip;
 
+	@Column(nullable=false)
 	private String daemonport;
 
 	/*
