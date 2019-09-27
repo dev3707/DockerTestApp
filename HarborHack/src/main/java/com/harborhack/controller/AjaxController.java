@@ -19,6 +19,7 @@ public class AjaxController {
 	@GetMapping(value="/getContainers", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> getDockerContainerList(@RequestParam("id") int machineId)
 	{
+		System.out.println("machineId received is"+machineId);
 		return restTemplateService.getContainerList(machineId);
 		
 	}
