@@ -23,9 +23,8 @@
 
 <!-- <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">-->
 </head>
-
 <body>
-<h2>The Machine is ${machine.name}</h2>
+<p hidden>${machine.id}</p>
 
 
 
