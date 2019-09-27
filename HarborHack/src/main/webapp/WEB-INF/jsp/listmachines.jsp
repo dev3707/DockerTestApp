@@ -21,8 +21,8 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 <style>
-.table{
- table-layout: fixed;
+.table {
+	table-layout: fixed;
 }
 </style>
 
@@ -57,78 +57,85 @@
 		<div class="container">
 
 
- <div class="modal fade" id="myModal" role="dialog">
-   <div class="modal-dialog">
-   
-   
-     <div class="modal-content">
-       <div class="modal-header text-center">
-       <h4 class="modal-title w-100 font-weight-bold">Machine details</h4>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     
-  <div class="modal-body">
-       
-       <div class="md-form mb-1">
-         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-         <input type="text" id="orangeForm-name" class="form-control validate">
-       </div>
-       
-       <div class="md-form mb-2">
-         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-         <input type="text" id="orangeForm-name" class="form-control validate">
-       </div>
-       
-       <div class="md-form mb-3">
-         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-         <input type="text" id="orangeForm-name" class="form-control validate">
-       
-       </div>
-       
-       <div class="md-form mb-4">
-         <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-         <input type="text" id="orangeForm-name" class="form-control validate">  
-       </div>
-       
-       <div class="modal-footer d-flex justify-content-center">
-       <button class="btn btn-indigo ">Submit</button>
-       </div>
-   
-     </div>
-   </div>
- </div>
- 
-</div>
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
 
-		<br>
-		<h6>Welcome ${name}</h6>
-		<br>
 
-				<c:forEach items="${machines}" var="machine">
-		 <div class="card">
-  <div class="card-header">
-    ${machine.ip}
-  </div>
-  <div class="card-body">
-    <thead>
-    <tr>
-    <td>${machine.name}</td>
-    <td>${machine.user}</td>
-    <td>${machine.fqdn}</td>
-    <td>${machine.ip}</td>
-    <td>${machine.daemonport}</td>
-    
-    </tr>
-    </thead>
-    
-  </div>
-</div>
-</c:forEach>
-		
-	</div>
-	</body>
-	</html>
-	
-	
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<h4 class="modal-title w-100 font-weight-bold">Machine
+								details</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+
+							<div class="md-form mb-1">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="md-form mb-2">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="md-form mb-3">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+
+							</div>
+
+							<div class="md-form mb-4">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="modal-footer d-flex justify-content-center">
+								<button class="btn btn-indigo ">Submit</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<br>
+			<h6>Welcome ${name}</h6>
+			<br>
+
+			<c:forEach items="${machines}" var="machine">
+				<div class="card">
+					<div class="card-header">${machine.ip}</div>
+					<div class="card-body">
+						<thead>
+							<tr>
+								<td>${machine.name}</td>
+								<td>${machine.user}</td>
+								<td>${machine.fqdn}</td>
+								<td>${machine.ip}</td>
+								<td>${machine.daemonport}</td>
+								<td><a type="button" class="btn btn-warning"
+									href="/deleteMachine?id=${machine.id}">Delete</a></td>
+								<td><a type="button" class="btn btn-success"
+									href="/getInfo?id=${machine.id}">Get Info</a></td>
+
+							</tr>
+						</thead>
+
+					</div>
+				</div>
+			</c:forEach>
+
+		</div>
+</body>
+</html>
+
