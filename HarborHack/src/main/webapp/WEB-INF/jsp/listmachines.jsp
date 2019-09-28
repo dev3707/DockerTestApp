@@ -30,7 +30,7 @@
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg text-white navbar-light bg-dark">
 			<a class="navbar-brand" href="/">Harbor</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -113,23 +113,34 @@
 			<br>
 
 			<c:forEach items="${machines}" var="machine">
-				<div class="card">
-					<div class="card-header">${machine.ip}</div>
-					<div class="card-body">
-						<thead>
-							<tr>
-								<td>${machine.name}</td>
-								<td>${machine.user}</td>
-								<td>${machine.fqdn}</td>
-								<td>${machine.ip}</td>
-								<td>${machine.daemonport}</td>
-								<td><a type="button" class="btn btn-warning"
-									href="/deleteMachine?id=${machine.id}">Delete</a></td>
-								<td><a type="button" class="btn btn-success"
-									href="/getInfo?id=${machine.id}">Get Info</a></td>
 
-							</tr>
-						</thead>
+				<div class="card">
+					<div class="card-header">
+						<b>Machine Details</b>
+					</div>
+					<div class="card-body">
+
+
+						<p>
+							<b>Machine Name</b> :${machine.name}
+						</p>
+						<p>
+							<b>User Name</b> :${machine.user}
+						</p>
+						<%-- <p><b>Machine FQDN</b> ${machine.fqdn}</p> --%>
+						<p>
+							<b>Machine IP </b> :${machine.ip}
+						</p>
+						<p>
+							<b>Daemonport </b>:${machine.daemonport}
+						</p>
+						<a type="button" class="btn btn-warning"
+							href="/deleteMachine?id=${machine.id}">Delete</a> <a
+							type="button" class="btn btn-success"
+							href="/getInfo?id=${machine.id}">Get Info</a>
+
+
+
 
 					</div>
 				</div>

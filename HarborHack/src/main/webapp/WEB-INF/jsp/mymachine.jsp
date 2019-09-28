@@ -28,9 +28,6 @@
 			.ready(
 					function() {
 						//var mId = $('#hide').text();
-						$("#retrieve-resources")
-								.click(
-										function() {
 											var displayResources = $("#display-resources");
 											displayResources
 													.text("Loading data from JSON source...");
@@ -58,12 +55,13 @@
 																					.html(output);
 																			$("table")
 																					.addClass("table");},
-																		complete : poll});}, 5000);});});});
+																		complete : poll});}, 5000);});}
+						);
 	
 </script>
 
 <div class="container">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg text-white navbar-light bg-dark">
 		<a class="navbar-brand" href="/">Harbor</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -106,7 +104,7 @@
 
 					<div class="modal-body">
 
-						<form action="/pullImage">
+						<form action="/pullImage" name="form1" >
 							<div class="form-group">
 								<label for="text">Image to be pulled(DockerHub)</label> <input type="text"
 									class="form-control" name="imageName">
@@ -123,10 +121,34 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+ 
+var form = $('#form1');
+form.submit(function () {
+ 
+$.ajax({
+type: GET,
+url: form.attr('action'),
+data: form.serialize(),
+success: function (data) {
+var result=data;
+$('#result').attr("value",result);
+ 
+}
+});
+ 
+return false;
+});
+</script>
+
 </head>
 <body class="col-md-12">
-	<h1></h1>
-	<div id="display-resources"></div>
+	<p><b>Containers running on machine<b></p>
+	<div class="card">
+  <div class="card-body">
+    <div id="display-resources"></div>
+	</div>
+</div>
 	<a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve
 		List</a>
 	<script

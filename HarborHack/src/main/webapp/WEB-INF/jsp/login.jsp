@@ -15,7 +15,7 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5 text-center bg-dark">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+            <h5 class="card-title text-center">Harbor</h5>
             <form class="form-signin" method="post">
               <div class="form-label-group">
                 <input type="text" name="name" class="form-control" placeholder="Username" required autofocus>
