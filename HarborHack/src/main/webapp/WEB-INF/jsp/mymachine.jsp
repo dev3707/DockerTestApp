@@ -24,7 +24,7 @@
 	$(document)
 			.ready(
 					function() {
-						var mId = $('#hide').text();
+						//var mId = $('#hide').text();
 						$("#retrieve-resources")
 								.click(
 										function() {
@@ -35,7 +35,7 @@
 											$(function poll() {
 												setTimeout(function(){$.ajax({
 																		type : "GET",
-																		url : "/getContainers?id="+mId, // Using our resources.json file to serve results
+																		url : "/getContainers?id="+${machine.id}, // Using our resources.json file to serve results
 																		success : function(
 																				result) {
 																			var i = 0;
@@ -56,7 +56,88 @@
 																			$("table")
 																					.addClass("table");},
 																		complete : poll});}, 5000);});});});
+	
 </script>
+
+<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/">Harbor</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">UserInfo</a>
+					</li>
+				</ul>
+				<div class="nav-item">
+					<a type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#myModal">Pull an Image</a>
+				</div>
+
+				<div class="nav-item">
+					<a class="nav-link pull-right" href="/logout">Logout</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+
+
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+
+
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<h4 class="modal-title w-100 font-weight-bold">Image Details</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+
+							<div class="md-form mb-1">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="md-form mb-2">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="md-form mb-3">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+
+							</div>
+
+							<div class="md-form mb-4">
+								<label data-error="wrong" data-success="right"
+									for="orangeForm-name">Your name</label> <input type="text"
+									id="orangeForm-name" class="form-control validate">
+							</div>
+
+							<div class="modal-footer d-flex justify-content-center">
+								<button class="btn btn-indigo ">Submit</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
 </head>
 <body class="col-md-12">
 <h1></h1>
