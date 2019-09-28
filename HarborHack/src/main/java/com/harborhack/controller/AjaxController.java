@@ -4,8 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.harborhack.model.Machine;
 import com.harborhack.service.RestTemplateService;
 import reactor.core.publisher.Flux;
 
@@ -41,5 +46,11 @@ public class AjaxController {
 		return restTemplateService.getServiceNetworks(machineId);
 	}
 	
+	@GetMapping(value = "/pullImage", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> pullImages(ModelMap model, @RequestParam("machineid") int id,@RequestParam("imageName") String imageName) {
+		
+		return restTemplateService.pullImageOnMachines(id,imageName);
+		
+	}
 	
 }
