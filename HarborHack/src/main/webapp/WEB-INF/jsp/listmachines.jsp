@@ -30,7 +30,7 @@
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg text-white navbar-light bg-dark">
+		<nav class="navbar navbar-expand-lg text-white navbar-light bg-light">
 			<a class="navbar-brand" href="/">Harbor</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -73,33 +73,30 @@
 
 						<div class="modal-body">
 
-							<div class="md-form mb-1">
-								<label data-error="wrong" data-success="right"
-									for="orangeForm-name">Your name</label> <input type="text"
-									id="orangeForm-name" class="form-control validate">
+							<form action="/addmachine" name="form1" method="post">
+							<div class="form-group">
+								<label for="text">Machine Name</label> <input type="text"
+									class="form-control" name="machineName">
 							</div>
-
-							<div class="md-form mb-2">
-								<label data-error="wrong" data-success="right"
-									for="orangeForm-name">Your name</label> <input type="text"
-									id="orangeForm-name" class="form-control validate">
+								<div class="form-group">
+								<label for="text">User Name</label> <input type="text"
+									class="form-control" name="userName">
 							</div>
-
-							<div class="md-form mb-3">
-								<label data-error="wrong" data-success="right"
-									for="orangeForm-name">Your name</label> <input type="text"
-									id="orangeForm-name" class="form-control validate">
-
+							<div class="form-group">
+								<label for="text">FQDN</label> <input type="text"
+									class="form-control" name="fqdn">
 							</div>
-
-							<div class="md-form mb-4">
-								<label data-error="wrong" data-success="right"
-									for="orangeForm-name">Your name</label> <input type="text"
-									id="orangeForm-name" class="form-control validate">
+							<div class="form-group">
+								<label for="text">IP</label> <input type="text"
+									class="form-control" name="IP">
 							</div>
-
-							<div class="modal-footer d-flex justify-content-center">
-								<button class="btn btn-indigo ">Submit</button>
+							
+							<div class="form-group">
+								<label for="text">DaemonPort</label> <input type="text"
+									class="form-control" name="daemonPort">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
 							</div>
 
 						</div>

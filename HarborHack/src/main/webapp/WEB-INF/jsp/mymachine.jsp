@@ -39,15 +39,15 @@
 																		success : function(
 																				result) {
 																			var i = 0;
-																			//console.log(result);
-																			var output = "<table><thead><tr><th>Name</th><th>Size</th><th>No. of containers</th></thead><tbody>";
+																			console.log(result);
+																			var output = "<table><thead><tr><th>Id</th><th>Image</th><th>State</th></thead><tbody>";
 																			for ( var i in result) {
 																				output += "<tr><td>"
 																						+ result[i].Id
 																						+ "</td><td>"
-																						+ result[i].Size
+																						+ result[i].Image
 																						+ "</td><td>"
-																						+ result[i].Containers
+																						+ result[i].State
 																						+ "</td></tr>";
 																			}
 																			output += "</tbody></table>";
@@ -61,7 +61,7 @@
 </script>
 
 <div class="container">
-	<nav class="navbar navbar-expand-lg text-white navbar-light bg-dark">
+	<nav class="navbar navbar-expand-lg text-white navbar-light bg-light">
 		<a class="navbar-brand" href="/">Harbor</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -141,26 +141,71 @@ return false;
 });
 </script>
 
+ <script>
+	$(document)
+			.ready(
+					function() {
+						//var mId = $('#hide').text();
+											var display-images = $("#display-images");
+											display-images
+													.text("Loading data from JSON source...");
+											// sendRequest(){ 
+											$(function poll() {
+												setTimeout(function(){$.ajax({
+																		type : "GET",
+																		url : "/getImages?id="+${machine.id}, // Using our resources.json file to serve results
+																		success : function(
+																				result) {
+																			var i = 0;
+																			console.log(result);
+																			var output = "<table><thead><tr><th>Name</th><th>Size</th><th>No. of containers</th></thead><tbody>";
+																			for ( var i in result) {
+																				output += "<tr><td>"
+																						+ result[i].Id
+																						+ "</td><td>"
+																						+ result[i].Size
+																						+ "</td><td>"
+																						+ result[i].Containers
+																						+ "</td></tr>";
+																			}
+																			output += "</tbody></table>";
+																			display-images
+																					.html(output);
+																			$("table")
+																					.addClass("table");},
+																		complete : poll});}, 5000);});}
+						);
+	
+</script> 
+
 </head>
 <body class="col-md-12">
-	<p><b>Containers running on machine<b></p>
+ 	<p><b>Containers running on machine<b></p>
 	<div class="card">
   <div class="card-body">
     <div id="display-resources"></div>
 	</div>
-</div>
-	<a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve
-		List</a>
+ </div> 
+ 
+ <p><b>Images running on machine<b></p>
+	<div class="card">
+  <div class="card-body">
+    <div id="display-images"></div>
+	</div>
+ </div>
+ 
+	<!-- <a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve
+		List</a> -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="./test.js"></script>
 </body>
-</html>
+<%-- </html>
 
 <!-- <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">-->
 </head>
 <body>
 	<p id='hide' hidden>${machine.id}</p>
 
-</body>
+</body> --%>
 </html>

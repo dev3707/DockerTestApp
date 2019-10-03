@@ -64,15 +64,13 @@ public class HomeController {
 		return "machine";
 	}
 
-	@RequestMapping(value = "/updatemachine", method = RequestMethod.POST)
-	public String updatemachine(ModelMap model, @Valid Machine machine, BindingResult result) {
-		machine.setUser(getLoggedInUserName());
-		if (result.hasErrors()) {
-			return "machine";
-		}
-		repository.save(machine);
-		return "redirect:/";
-	}
+	/*
+	 * @RequestMapping(value = "/updatemachine", method = RequestMethod.POST) public
+	 * String updatemachine(ModelMap model, @RequestParam String machine,
+	 * BindingResult result) { machine.setUser(getLoggedInUserName()); if
+	 * (result.hasErrors()) { return "machine"; } repository.save(machine); return
+	 * "redirect:/"; }
+	 */
 	
 	@RequestMapping(value = "/getInfo", method = RequestMethod.GET)
 	public String getMachinePage(ModelMap model, @RequestParam int id) {
@@ -81,5 +79,22 @@ public class HomeController {
 		return "mymachine";
 		
 	}
+	
+	/*
+	 * @PostMapping("/students/{studentId}/courses") public ResponseEntity<Void>
+	 * registerStudentForCourse(
+	 * 
+	 * @PathVariable String studentId, @RequestBody Course newCourse) {
+	 * 
+	 * Course course = studentService.addCourse(studentId, newCourse);
+	 * 
+	 * if (course == null) return ResponseEntity.noContent().build();
+	 * 
+	 * URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(
+	 * "/{id}").buildAndExpand(course.getId()).toUri();
+	 * 
+	 * return ResponseEntity.created(location).build(); }
+	 */
+
 	
 }

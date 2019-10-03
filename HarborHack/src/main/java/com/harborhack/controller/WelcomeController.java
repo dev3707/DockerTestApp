@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes()
 public class WelcomeController {
 
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String showWelcomePage(ModelMap model) {
-		model.put("name", getLoggedInUserName());
-		return "welcome";
-	}*/
 
 	private String getLoggedInUserName() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
